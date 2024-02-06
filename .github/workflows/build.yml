@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v4.3.1
         with:
           name: test-bar
-          path: MyBAR.bar
+          path: target
