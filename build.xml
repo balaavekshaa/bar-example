@@ -7,8 +7,7 @@
 			 <arg line="-a MyBAR.bar"/>
 			 <arg line="-k TestAPP2"/>
 			 <classpath>
-				<fileset dir="D:\software\lib" includes="IntegrationAPI.jar" /> 
-				<fileset dir="D:\software\lib" includes="javacompute.jar,jplugin2.jar" /> 
+				<fileset dir="lib" includes="IntegrationAPI.jar,javacompute.jar,jplugin2.jar" /> 
 			 </classpath>
 	   </java>
 	</target>
