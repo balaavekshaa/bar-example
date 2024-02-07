@@ -29,3 +29,7 @@ jobs:
         with:
           name: test-bar
           path: target/*.bar
+      - name: Publish to GitHub Packages Apache Maven
+        run: mvn deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.TESTSECRET }}
