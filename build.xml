@@ -4,7 +4,7 @@
 	   <java classname="com.ibm.broker.config.appdev.FlowRendererBAR"
 		  failonerror="true"
 		  fork="true">
-			 <arg line="-a target\MyBAR.bar"/>
+			 <arg line="-a target/MyBAR.bar"/>
 			 <arg line="-k TestAPP2"/>
 			 <classpath>
 				<fileset dir="lib" includes="IntegrationAPI.jar,javacompute.jar,jplugin2.jar" /> 
