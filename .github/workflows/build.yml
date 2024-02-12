@@ -24,11 +24,7 @@ jobs:
           settings-path: ${{ github.workspace }} # location for the settings.xml file
       - name: Build bar
         run: ant -f build.xml
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.3.1
-        with:
-          name: test-bar
-          path: target/*.bar
+
       - name: Publish to GitHub Packages Apache Maven
         run: mvn install:install-file -Dfile=MyBAR.0.1.2.bar -DgroupId=com.avekshaa.bar -DartifactId=mybar -Dversion=0.0.1 -Dpackaging=bar
         env:
