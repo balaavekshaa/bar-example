@@ -27,6 +27,6 @@ jobs:
         run: ant -f build.xml
 
       - name: Publish to GitHub Packages Apache Maven
-        run: mvn install:install-file -Dfile=MyBAR.0.1.2.bar -DgroupId=com.avekshaa.bar -DartifactId=mybar -Dversion=0.0.1 -Dpackaging=bar
+        run: mvn deploy:deploy-file -Dfile=MyBAR.0.1.2.bar -DgroupId=com.avekshaa.bar -DartifactId=mybar -Dversion=0.0.1 -Dpackaging=bar    -DrepositoryId=github    -Durl=https://github.com/balaavekshaa/bar-example
         env:
           GITHUB_TOKEN: ${{ secrets.TESTSECRET }}
