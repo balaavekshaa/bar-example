@@ -30,6 +30,6 @@ jobs:
           name: test-bar
           path: target/*.bar
       - name: Publish to GitHub Packages Apache Maven
-        run: mvn deploy
+        run: mvn install:install-file -Dfile=MyBAR.0.1.2.bar -DgroupId=com.avekshaa.bar -DartifactId=mybar -Dversion=0.0.1 -Dpackaging=bar
         env:
           GITHUB_TOKEN: ${{ secrets.TESTSECRET }}
