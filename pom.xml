@@ -1,12 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.sample</groupId>
-	<artifactId>sample</artifactId>
-	<packaging>pom</packaging>
-	<version>0.1.2</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.example</groupId>
+    <artifactId>MyBAR</artifactId>
+    <version>0.1.2</version>
+    <packaging>pom</packaging>
+
+    <build>
+        <plugins>
+            <!-- Attach the BAR file as an artifact -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-bar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>${project.build.directory}/${project.artifactId}-${project.version}.bar</file>
+                                    <type>bar</type>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 	<distributionManagement>
 		<repository>
 			<id>github</id>
@@ -14,32 +42,5 @@
 			<url>https://maven.pkg.github.com/balaavekshaa/bar-example</url>
 		</repository>
 	</distributionManagement>
-<dependencies>
-
-
-	</dependencies>
-<build>
-    <plugins>
-        <!-- Example: Package with maven-assembly-plugin -->
-        <plugin>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <configuration>
-                <!-- Configuration specific to your project -->
-                <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>
-            </configuration>
-            <executions>
-                <execution>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>single</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-        
-        <!-- Deploy with maven-deploy-plugin -->
-        <!-- Configure if needed, often it's enough to rely on its defaults and Maven's deploy phase -->
-    </plugins>
-</build>
+    
+</project>
