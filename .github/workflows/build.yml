@@ -12,7 +12,9 @@ jobs:
   build:
     name: Build and analyze
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v3
         with:
@@ -30,4 +32,4 @@ jobs:
       - name: Publish to GitHub Packages Apache Maven
         run: mvn clean deploy
         env:
-          GITHUB_TOKEN: ${{secrets.barsecret}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
